@@ -1,0 +1,48 @@
+
+#menu {
+  width: 160px;
+  height: 75%;
+  background: #2196F3!important;
+  color: white;
+  float: left;
+}
+
+#menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  list-style: none;
+  font-size: 16px;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+#menu li:hover {
+  background-color: #90CAF9;
+}
+
+#menu li.active {
+  background-color: #2196F3;
+}
+
+#menu ul li ul {
+  display: none;
+}
+
+#menu ul li.submenu {
+  position: relative
+}
+
+#menu ul li.submenu ul {
+    position: absolute;
+    left: 160px;
+    width: 195px;
+    top: 0;
+    background: #6495ED
+}
+
+#menu ul li.submenu:hover ul {
+  display: inline-block 
+}

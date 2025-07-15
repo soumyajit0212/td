@@ -1,0 +1,13 @@
+@DbTable(PROJECT_MASTER)
+@DbSchema(PMO)
+ProjectMaster {
+  // attributes
+  projectId : decimal { @Id @GeneratedValue(IDENTITY) @DbName(PROJECT_ID) @DbType("NUMBER(10)") @NotNull @NotEmpty @Size(10) };
+  projectSumm : string { @GeneratedValue(IDENTITY) @DbName(PROJECT_SUMM) @DbType("VARCHAR2(100)") @Size(100) @MaxLen(100) };
+  projectDesc : string { @GeneratedValue(IDENTITY) @DbName(PROJECT_DESC) @DbType("VARCHAR2(2000)") @Size(2000) @MaxLen(2000) };
+  projectStart : timestamp { @GeneratedValue(IDENTITY) @DbName(PROJECT_START) @DbType(DATE) };
+  projectEnd : timestamp { @GeneratedValue(IDENTITY) @DbName(PROJECT_END) @DbType(DATE) };
+  jiraRef : string { @GeneratedValue(IDENTITY) @DbName(JIRA_REF) @DbType("VARCHAR2(30)") @Size(30) @MaxLen(30) };
+  projectDuration : decimal { @GeneratedValue(IDENTITY) @DbName(PROJECT_DURATION) @DbType("NUMBER(10)") @Size(10) };
+  // links
+}

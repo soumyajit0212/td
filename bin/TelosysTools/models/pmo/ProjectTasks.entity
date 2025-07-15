@@ -1,0 +1,18 @@
+@DbTable(PROJECT_TASKS)
+@DbSchema(PMO)
+ProjectTasks {
+  // attributes
+  taskId : decimal { @Id @GeneratedValue(IDENTITY) @DbName(TASK_ID) @DbType("NUMBER(10)") @NotNull @NotEmpty @Size(10) };
+  projectId : decimal { @GeneratedValue(IDENTITY) @DbName(PROJECT_ID) @DbType("NUMBER(10)") @Size(10) @FK(SYS_C008433, ProjectMaster.projectId) };
+  taskDetails : string { @GeneratedValue(IDENTITY) @DbName(TASK_DETAILS) @DbType("VARCHAR2(500)") @Size(500) @MaxLen(500) };
+  taskStart : timestamp { @GeneratedValue(IDENTITY) @DbName(TASK_START) @DbType(DATE) };
+  taskEnd : timestamp { @GeneratedValue(IDENTITY) @DbName(TASK_END) @DbType(DATE) };
+  taskAssignment : string { @GeneratedValue(IDENTITY) @DbName(TASK_ASSIGNMENT) @DbType("VARCHAR2(200)") @Size(200) @MaxLen(200) };
+  taskDuration : decimal { @GeneratedValue(IDENTITY) @DbName(TASK_DURATION) @DbType("NUMBER(10)") @Size(10) };
+  taskCompletion : decimal { @GeneratedValue(IDENTITY) @DbName(TASK_COMPLETION) @DbType("NUMBER(10)") @Size(10) };
+  taskRiskRating : decimal { @GeneratedValue(IDENTITY) @DbName(TASK_RISK_RATING) @DbType("NUMBER(10)") @Size(10) };
+  jiraRef : string { @GeneratedValue(IDENTITY) @DbName(JIRA_REF) @DbType("VARCHAR2(30)") @Size(30) @MaxLen(30) };
+  taskRiskDetails : string { @GeneratedValue(IDENTITY) @DbName(TASK_RISK_DETAILS) @DbType("VARCHAR2(500)") @Size(500) @MaxLen(500) };
+  // links
+  projectmaster : ProjectMaster { @LinkByFK(SYS_C008433) };
+}
